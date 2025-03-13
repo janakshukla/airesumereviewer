@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { Upload, FileText, CheckCircle, XCircle, Lightbulb, PieChart } from 'lucide-react';
+import { Upload, FileText, CheckCircle, XCircle, Lightbulb} from 'lucide-react';
 import { toast } from 'sonner';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';

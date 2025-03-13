@@ -20,8 +20,8 @@ export async function POST(req: NextRequest) {
     `;
 
     const response = await model.generateContent(prompt as string);
-    //@ts-expect-error
-    const aiResponseText = response.response.candidates[0].content.parts[0].text;
+   
+    const aiResponseText = response.response?.candidates?.[0]?.content?.parts?.[0]?.text;
 
     return NextResponse.json({ response: aiResponseText });
   } catch (error) {
