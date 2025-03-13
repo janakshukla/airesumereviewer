@@ -62,7 +62,7 @@ function App() {
     });
 
     const data = await response.json();
-    let cleanedData = data.response
+    const cleanedData = data.response
       .replace(/^```json\s*/, "")
       .replace(/\s*```$/, "")
       .trim();
