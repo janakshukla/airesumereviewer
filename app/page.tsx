@@ -5,12 +5,16 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { Pie } from "react-chartjs-2";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Page() {
   // const [reviewData, setReviewData] = useState(null);
   const reviewData = {
     resumeSummary:
-      "Janak Shukla's resume showcases a computer science and engineering student currently pursuing a B.Tech degree.  He highlights several personal projects demonstrating proficiency in web development using various frameworks and languages, including React.js, Node.js, Express.js, and databases like MongoDB. His projects focus on interactive applications with unique features and  include live demos.  Academic achievements show consistently high marks in secondary and higher secondary education.",
+      "Janak Shukla's resume showcases a computer science and engineering student currently pursuing a B.Tech degree.  He highlights several personal projects demonstrating proficiency in web development using .",
     strengths: [
       "Strong project portfolio showcasing a variety of skills and technologies.",
       "Inclusion of live demos for most projects (great for demonstrating abilities).",
@@ -50,6 +54,28 @@ export default function Page() {
       "While Janak has impressive projects, the resume needs improvements to effectively communicate his value to potential employers.  The lack of a strong summary and detailed project descriptions are major weaknesses.  Focusing on the impact of his projects, rather than just listing features, will significantly improve the resume.",
     resumeScore: 72,
   };
+  const resumeScoreData = {
+    datasets: [
+      {
+        data: [
+          reviewData?.resumeScore || 0,
+          100 - (reviewData?.resumeScore || 0),
+        ],
+        backgroundColor: ["#4caf50", "#e0e0e0"],
+        hoverBackgroundColor: ["#66bb6a", "#f5f5f5"],
+      },
+    ],
+  };
+
+  const atsScoreData = {
+    datasets: [
+      {
+        data: [reviewData?.atsscore || 0, 100 - (reviewData?.atsscore || 0)],
+        backgroundColor: ["#ff9800", "#e0e0e0"],
+        hoverBackgroundColor: ["#ffb74d", "#f5f5f5"],
+      },
+    ],
+  };
 
   const handleFileChange = async (
     event: React.ChangeEvent<HTMLInputElement>
@@ -75,10 +101,10 @@ export default function Page() {
 
   return (
     <>
-      <div className="h-screen w-screen flex flex-col justify-center items-center bg-gradient-to-r from-[#845ec2] to-[#f9f871] text-white">
-      <h1 className="scroll-m-20 text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#051937] to-[#d65db1]  font-extrabold tracking-tight lg:text-5xl">
-      The Myth: A Resume reviewerrrrr...
-    </h1>
+      <div className="h-screen w-screen flex flex-col justify-center items-center bg-gradient-to-r from-[#051937] to-[#082b60] text-white">
+        <h1 className="scroll-m-20 text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#a70e79] to-[#d65db1]  font-extrabold tracking-tight lg:text-5xl">
+          The Myth: A Resume reviewerrrrr...
+        </h1>
         <Card className="w-full max-w-md p-6 mt-4 bg-white bg-opacity-10 backdrop-blur-lg rounded-lg shadow-lg">
           <div className="grid gap-4">
             <Label
@@ -97,14 +123,48 @@ export default function Page() {
           </div>
         </Card>
         {reviewData && (
-          <div className="grid grid-cols-6 grid-rows-5 pt-4 h-2/4 w-screen gap-4">
-            <div className="col-span-4  bg-blue-500 row-span-2">1</div>
-            <div className="col-span-2 bg-red-500 row-span-2 col-start-5">2</div>
-            <div className="col-span-2 bg-green-500 row-span-3 row-start-3">3</div>
-            <div className="col-span-2 bg-pink-500 row-span-3 col-start-3 row-start-3">
-              4
+          <div className="md:grid md:grid-cols-6 md:grid-rows-5 pt-4 h-2/4 w-screen gap-4">
+            <div className="md:col-span-4 text-xl font-serif row-span-2">
+              {reviewData.resumeSummary}
             </div>
-            <div className="col-span-2 bg-yellow-500 row-span-3 col-start-5 row-start-3">
+            <div className="md:col-span-2 flex justify-between items-center row-span-2 col-start-5">
+              <Label
+                htmlFor="ress"
+                className="text-white text-lg font-semibold"
+              >
+                Resume score:
+              </Label>
+              <Pie id="ress" data={resumeScoreData} />
+              <Label htmlFor="ats" className="text-white text-lg font-semibold">
+                ATS score:
+              </Label>
+              <Pie id="ats" data={atsScoreData} />
+            </div>
+            <div className="md:col-span-2  row-span-3 row-start-3">
+              <span className="font-extrabold font-sans text-lg">
+                Strenths:
+              </span>
+              <ul>
+                {reviewData.strengths.map((strength, index) => (
+                  <li key={index}>
+                    {index + 1}-&gt;{strength}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="md:col-span-2 bg-pink-500 row-span-3 col-start-3 row-start-3">
+              <span className="font-extrabold font-sans text-lg">
+                Strenths:
+              </span>
+              <ul>
+                {reviewData.strengths.map((strength, index) => (
+                  <li key={index}>
+                    {index + 1}-&gt;{strength}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="md:col-span-2 bg-yellow-500 row-span-3 col-start-5 row-start-3">
               5
             </div>
           </div>
