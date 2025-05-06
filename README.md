@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📄 AI Resume Reviewer
 
-## Getting Started
+**AI Resume Reviewer** is an AI-powered web application designed to analyze and enhance your resume's compatibility with Applicant Tracking Systems (ATS). Utilizing Google's Gemini AI, it provides actionable insights to optimize your resume for better visibility and effectiveness.
 
-First, run the development server:
+🔗 **Live Demo**: [airesumereviewer.vercel.app](https://airesumereviewer.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **ATS Compatibility Analysis**: Evaluate how well your resume aligns with ATS requirements.
+* **AI-Powered Suggestions**: Receive personalized recommendations to improve your resume's effectiveness.
+* **User-Friendly Interface**: Navigate through a clean and intuitive UI built with Next.js and Tailwind CSS.
+* **Secure and Fast**: Hosted on Vercel for reliable and swift performance.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+* **Frontend**: [Next.js](https://nextjs.org/), [Tailwind CSS](https://tailwindcss.com/)
+* **AI Integration**: [Gemini AI](https://deepmind.google/technologies/gemini/)
+* **Deployment**: [Vercel](https://vercel.com/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Getting Started
 
-## Deploy on Vercel
+### Prerequisites
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Ensure you have the following installed:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Node.js (v14 or later)
+* npm or yarn
+
+### Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/janakshukla/airesumereviewer.git
+   cd airesumereviewer
+   ```
+
+2. **Install dependencies**:
+
+   Using npm:
+
+   ```bash
+   npm install
+   ```
+
+   Or using yarn:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Run the development server**:
+
+   Using npm:
+
+   ```bash
+   npm run dev
+   ```
+
+   Or using yarn:
+
+   ```bash
+   yarn dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+
+---
+
+## 📁 Project Structure
+
+* `app/`: Contains the main application components and pages.
+* `components/ui/`: Reusable UI components.
+* `lib/`: Utility functions and helpers.
+* `public/`: Static assets.
+
+---
+
+## 📬 Contact
+
+For any inquiries or feedback, feel free to reach out to [Janak Shukla](https://github.com/janakshukla).
+
+---
+
